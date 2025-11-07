@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SHVYA AI — Request a Demo & Book a Call</title>
+  <meta name="description" content="Request a demo and book a call with SHVYA AI — WhatsApp automation & SaaS suite." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070715; --panel:#0e0e24; --panel-2:#11112b; --accent:#22c55e; --accent-2:#10b981; --muted:#a1a1b5; --text:#f7f7fb; --danger:#ef4444; --focus: 0 0 0 6px rgb(34 197 94 / 8%), 0 0 0 1.5px var(--accent); --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background: radial-gradient(1200px 800px at 20% -10%, #1a1a3a 0%, transparent 60%), radial-gradient(900px 700px at 110% 10%, #0b3725 0%, transparent 70%), var(--bg); color:var(--text); display:grid; place-items:center; padding:32px; }
+    .container{width:min(1120px, 100%);} 
+
+    .header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px;}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
+    .logo{width:40px; height:40px; border-radius:12px; background:conic-gradient(from 210deg, #1dd75f, #0fb676, #1dd75f); display:grid; place-items:center; box-shadow:0 10px 30px rgb(34 197 94 / 30%)}
+    .logo svg{filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
+    .brand h1{font-size:18px; margin:0; letter-spacing:.6px}
+
+    .cta{appearance:none; border:0; background: linear-gradient(180deg, #151533, #0c0c20); color:white; padding:14px 18px; border-radius:999px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:10px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 0 0 1px rgba(255,255,255,.06), 0 10px 30px rgba(0,0,0,.35); transition: transform .2s ease, box-shadow .2s ease;}
+    .cta:hover{ transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 0 1px rgba(255,255,255,.12), 0 16px 40px rgba(0,0,0,.5)}
+    .cta:focus-visible{ outline:none; box-shadow: var(--focus) }
+    .cta .arrow{display:inline-grid; place-items:center; width:24px; height:24px; border-radius:999px; background:rgba(255,255,255,.08)}
+
+    .panel{background: linear-gradient(180deg, var(--panel), var(--panel-2)); border-radius: var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06); overflow:hidden;}
+
+    .hero{ display:grid; grid-template-columns: 1.1fr 1fr; gap:28px; padding:28px; }
+    @media (max-width: 900px){.hero{grid-template-columns:1fr;}}
+    .copy{ padding:28px; border-right:1px solid rgba(255,255,255,.06)}
+    @media (max-width: 900px){ .copy{border-right:0; border-bottom:1px solid rgba(255,255,255,.06)} }
+    .eyebrow{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:rgba(34, 197, 94, .1); color:#bbf7d0; font-weight:600; font-size:12px; letter-spacing:.4px; text-transform:uppercase}
+    .title{ font-size: clamp(28px, 3.2vw, 44px); margin:14px 0 10px; line-height:1.1; }
+    .subtitle{ color:var(--muted); font-size:15px; margin:0 0 18px }
+
+    form{ padding:28px; }
+    .grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+    @media (max-width: 720px){ .grid{grid-template-columns:1fr} }
+
+    .field{ position:relative; }
+    .field input, .field select, .field textarea{width:100%; background:#0c0c21; border:1px solid rgba(255,255,255,.08); border-radius:14px; color:var(--text); padding:16px 14px; outline:none; transition:border .2s, box-shadow .2s, background .2s; font: inherit;}
+    .field textarea{ min-height:120px; resize:vertical }
+    .field input::placeholder, .field textarea::placeholder{ color:#7e7ea1 }
+    .field input:focus, .field select:focus, .field textarea:focus{ box-shadow:var(--focus); border-color: rgba(34, 197, 94, .6)}
+    .floating-label{ position:absolute; left:12px; top:10px; padding:0 6px; font-size:12px; color:#9aa0b6; background: #0c0c21; transform: translateY(-50%); pointer-events:none }
+    .help{ font-size:12px; color:var(--muted); margin-top:8px }
+    .error{ font-size:12px; color:var(--danger); margin-top:8px; display:none }
+    .field.invalid .error{ display:block }
+    .actions{ display:flex; align-items:center; gap:12px; margin-top:8px; flex-wrap:wrap }
+    .btn-primary{ --_bg1:#19c37d; --_bg2:#12a567; background:linear-gradient(180deg, var(--_bg1), var(--_bg2)); border:0; color:#03150c; padding:14px 18px; border-radius:999px; font-weight:800; letter-spacing:.2px; display:inline-flex; align-items:center; gap:10px; cursor:pointer; box-shadow:0 10px 30px rgba(25,195,125,.35); transition: transform .15s ease, box-shadow .15s ease }
+    .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 16px 40px rgba(25,195,125,.5) }
+    .btn-primary:disabled{ opacity:.6; cursor:not-allowed; transform:none; box-shadow:none }
+    .checkbox{ display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--muted) }
+    .checkbox input{ accent-color: var(--accent); width:18px; height:18px; margin-top:2px }
+    .note{ font-size:12px; color:#96a0b9 }
+
+    .toast{ position: fixed; right: 24px; bottom: 24px; padding:14px 16px; background:#0b1f14; color:#d1fae5; border:1px solid rgba(16,185,129,.4); border-radius:14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); opacity:0; transform: translateY(10px); pointer-events:none; transition: opacity .25s ease, transform .25s ease }
+    .toast.show{ opacity:1; transform: translateY(0) }
+
+    .modal{ position:fixed; inset:0; display:none; place-items:center; background:rgba(2,6,12,.7); backdrop-filter: blur(6px); }
+    .modal.open{ display:grid }
+    .modal-card{ width:min(720px, 96%); background: linear-gradient(180deg, var(--panel), var(--panel-2)); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:22px; text-align:left; box-shadow: 0 30px 80px rgba(0,0,0,.6) }
+    .modal-card h3{ margin:6px 0 6px }
+    .modal-card p{ color:var(--muted); margin:0 0 12px }
+
+    /* Calendar inside modal */
+    .cal-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap:16px }
+    @media (max-width: 860px){ .cal-wrap{ grid-template-columns:1fr } }
+    .cal-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px }
+    .cal-title{ font-weight:700 }
+    .cal-nav{ display:flex; gap:8px }
+    .icon-btn{ width:36px; height:36px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background:#0c0c21; color:var(--text); display:grid; place-items:center; cursor:pointer }
+    .icon-btn:disabled{ opacity:.5; cursor:not-allowed }
+    .calendar{ display:grid; grid-template-columns: repeat(7, 1fr); gap:6px }
+    .dow{ font-size:11px; color:#9aa0b6; text-transform:uppercase; letter-spacing:.4px; text-align:center; padding:6px 0 }
+    .day{ background:#0c0c21; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:10px 0; text-align:center; cursor:pointer; user-select:none }
+    .day.other{ opacity:.4 }
+    .day.disabled{ opacity:.35; cursor:not-allowed; text-decoration:line-through }
+    .day.selected{ outline:2px solid var(--accent); box-shadow: 0 0 0 4px rgb(34 197 94 / 12%) }
+    .slots{ display:flex; flex-wrap:wrap; gap:10px }
+    .slot{ padding:10px 12px; border-radius:999px; background:#0c0c21; border:1px solid rgba(255,255,255,.12); cursor:pointer }
+    .slot:hover{ border-color: rgba(34,197,94,.6) }
+    .slot.disabled{ opacity:.4; cursor:not-allowed }
+    .slot.selected{ background:linear-gradient(180deg, #19c37d, #12a567); color:#03150c; border-color:transparent }
+    .hidden{ display:none !important }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header" aria-label="Top Navigation">
+      <a class="brand" href="#" aria-label="SHVYA AI Home">
+        <span class="logo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 12.25c0-2.9 2.35-5.25 5.25-5.25s5.25 2.35 5.25 5.25c0 2.9-2.35 5.25-5.25 5.25-.62 0-1.22-.1-1.77-.3l-2.48.67.66-2.39A5.22 5.22 0 0 1 7 12.25Z" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="10" cy="12" r="1.2" fill="white"/>
+            <circle cx="14.6" cy="12" r="1.2" fill="white"/>
+          </svg>
+        </span>
+        <h1>SHVYA AI</h1>
+      </a>
+      <button class="cta" type="button" onclick="document.getElementById('name').focus()">
+        <span>Request a Demo</span>
+        <span class="arrow" aria-hidden="true">➜</span>
+      </button>
+    </header>
+
+    <main class="panel hero" aria-labelledby="hero-title">
+      <section class="copy">
+        <span class="eyebrow">WhatsApp Automation • SaaS</span>
+        <h2 id="hero-title" class="title">Automate conversations. Convert faster.</h2>
+        <p class="subtitle">See how SHVYA AI connects your WhatsApp, CRM, and workflows to engage leads instantly, book meetings, and scale support with intelligent automation.</p>
+        <ul role="list" style="margin:0; padding:0 0 0 18px; line-height:1.9; color:#c6c6db">
+          <li>No-code flows & smart routing</li>
+          <li>24/7 chatbot with human handoff</li>
+          <li>Broadcasts, templates, metrics</li>
+        </ul>
+        <div style="margin-top:18px">
+          <button class="btn-primary" type="button" onclick="document.getElementById('request-form').scrollIntoView({behavior:'smooth'}); document.getElementById('name').focus()">
+            Request a Demo <span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section aria-label="Request a demo form">
+        <form id="request-form" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label class="floating-label" for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="John Carter" required aria-required="true" autocomplete="name" />
+              <p class="error">Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="email">Work email</label>
+              <input id="email" name="email" type="email" inputmode="email" placeholder="you@company.com" required aria-required="true" autocomplete="email" />
+              <p class="error">Enter a valid email address.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="company">Company</label>
+              <input id="company" name="company" type="text" placeholder="Acme Inc." required aria-required="true" autocomplete="organization" />
+              <p class="error">Please enter your company.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="phone">Phone (WhatsApp)</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+91 98765 43210" required aria-required="true" autocomplete="tel" />
+              <p class="error">Enter a valid phone number.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="size">Company size</label>
+              <select id="size" name="size" required aria-required="true">
+                <option value="" disabled selected>Select</option>
+                <option>1–10</option>
+                <option>11–50</option>
+                <option>51–200</option>
+                <option>201–500</option>
+                <option>500+</option>
+              </select>
+              <p class="error">Select your company size.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="usecase">Primary use case</label>
+              <select id="usecase" name="usecase" required aria-required="true">
+                <option value="" disabled selected>Select</option>
+                <option>Lead generation</option>
+                <option>Customer support</option>
+                <option>E‑commerce updates</option>
+                <option>Appointment booking</option>
+                <option>Notifications/Broadcasts</option>
+              </select>
+              <p class="error">Choose a use case.</p>
+            </div>
+            <div class="field" style="grid-column:1/-1">
+              <label class="floating-label" for="message">What should we focus on?</label>
+              <textarea id="message" name="message" placeholder="Tell us about your goals, current tools, and timeline…"></textarea>
+              <p class="help">Optional, but helps us tailor your demo.</p>
+            </div>
+          </div>
+
+          <div class="actions" style="margin-top:14px">
+            <button id="openCalBtn" class="btn-primary" type="button" disabled>
+              Choose Date & Time <span class="arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast for errors -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Calendar Modal (step: choose date, then slot) -->
+  <div id="calendarModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="calTitle" aria-describedby="calDesc">
+    <div class="modal-card">
+      <div class="cal-header">
+        <div>
+          <h3 id="calTitle" class="cal-title">Select date</h3>
+          <p id="calDesc" class="note">Pick a date first. Then choose an available time slot.</p>
+        </div>
+        <div class="cal-nav">
+          <button id="prevMonth" class="icon-btn" aria-label="Previous month">◀</button>
+          <button id="nextMonth" class="icon-btn" aria-label="Next month">▶</button>
+        </div>
+      </div>
+      <div class="cal-wrap">
+        <div>
+          <div class="calendar" id="calendar-grid" aria-label="calendar"></div>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
+            <div class="tz"><label for="tzSel">Timezone</label><select id="tzSel"></select></div>
+            <strong id="selDateLabel">No date selected</strong>
+          </div>
+          <div id="slots" class="slots hidden" role="listbox" aria-label="time slots"></div>
+          <div class="actions" style="margin-top:14px">
+            <button id="bookBtn" class="btn-primary hidden" type="button">Book a Call <span class="arrow" aria-hidden="true">→</span></button>
+            <button class="cta" type="button" onclick="closeCalendarModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking confirmation modal -->
+  <div id="bookingModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" aria-describedby="bookingDesc">
+    <div class="modal-card" style="text-align:center">
+      <div class="logo" style="margin:0 auto 8px; width:54px; height:54px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M7 12.25c0-2.9 2.35-5.25 5.25-5.25s5.25 2.35 5.25 5.25c0 2.9-2.35 5.25-5.25 5.25-.62 0-1.22-.1-1.77-.3l-2.48.67.66-2.39A5.22 5.22 0 0 1 7 12.25Z" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="10" cy="12" r="1.2" fill="white"/>
+          <circle cx="14.6" cy="12" r="1.2" fill="white"/>
+        </svg>
+      </div>
+      <h3 id="bookingTitle">Booking confirmed 🎉</h3>
+      <p id="bookingDesc">We saved your slot and downloaded a calendar invite. Redirecting to shvya-ai.com…</p>
+      <a class="btn-primary" href="https://shvya-ai.com/">Go now</a>
+    </div>
+  </div>
+
+<script>
+// ===== Request form: enable calendar button after valid =====
+(function(){
+  const form = document.getElementById('request-form');
+  const openBtn = document.getElementById('openCalBtn');
+  const toast = document.getElementById('toast');
+  const req = ['name','email','company','phone','size','usecase'];
+  const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  const phoneOk = v => /^(\+\d{1,3}[\s-]?)?\d{7,14}$/.test(v);
+  function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(()=> toast.classList.remove('show'), 2200); }
+  function check(){
+    let ok=true; form.querySelectorAll('.field').forEach(f=> f.classList.remove('invalid'));
+    req.forEach(k=>{ if(!form[k].value.trim()) { ok=false; }});
+    if(form.email.value && !emailOk(form.email.value)) ok=false;
+    if(form.phone.value && !phoneOk(form.phone.value)) ok=false;
+    openBtn.disabled = !ok;
+    return ok;
+  }
+  form.addEventListener('input', check);
+  openBtn.addEventListener('click', ()=>{ if(!check()){ showToast('Please complete the form first.'); return; } openCalendarModal(); });
+  check();
+})();
+
+// ===== Calendar modal logic (date -> slot -> book) =====
+(function(){
+  const modal = document.getElementById('calendarModal');
+  const calGrid = document.getElementById('calendar-grid');
+  const prevBtn = document.getElementById('prevMonth');
+  const nextBtn = document.getElementById('nextMonth');
+  const tzSel = document.getElementById('tzSel');
+  const slotsEl = document.getElementById('slots');
+  const selDateLabel = document.getElementById('selDateLabel');
+  const bookBtn = document.getElementById('bookBtn');
+
+  const slotMinutes = 30, workStart = 10, workEnd = 18, minNoticeMinutes = 120, openMonths = 2;
+  const tzList = [ 'Asia/Kolkata','Asia/Dubai','Europe/London','Europe/Berlin','America/New_York','America/Los_Angeles','Australia/Sydney' ];
+  const detectedTZ = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Kolkata';
+  tzList.sort((a,b)=> a===detectedTZ? -1 : b===detectedTZ? 1 : a.localeCompare(b));
+  tzSel.innerHTML = tzList.map(z=>`<option ${z===detectedTZ?'selected':''}>${z}</option>`).join('');
+
+  let viewDate = new Date(); viewDate.setDate(1);
+  let selectedDay = null; let selectedSlot = null;
+
+  function toTZ(d, tz){ return new Date(new Intl.DateTimeFormat('en-US',{timeZone:tz, hour12:false, year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit'}).format(new Date(d))); }
+  function dayKey(d){ return d.toISOString().slice(0,10); }
+  function fmtMonth(d){ return d.toLocaleString(undefined,{month:'long', year:'numeric'}); }
+
+  function buildCalendar(){
+    calGrid.innerHTML = '';
+    const tz = tzSel.value; const first = toTZ(viewDate, tz); const startDay = new Date(first); const startDow = (startDay.getDay()+6)%7; startDay.setDate(1 - startDow);
+    const dows = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']; dows.forEach(d=>{ const e=document.createElement('div'); e.className='dow'; e.textContent=d; calGrid.appendChild(e); });
+    const today = toTZ(new Date(), tz); const maxDate = toTZ(new Date(), tz); maxDate.setMonth(maxDate.getMonth()+openMonths); maxDate.setDate(0);
+    for(let i=0;i<42;i++){
+      const d = new Date(startDay); d.setDate(startDay.getDate()+i);
+      const el = document.createElement('button'); el.type='button'; el.className='day'; el.textContent=d.getDate();
+      const inMonth = d.getMonth()===first.getMonth(); if(!inMonth) el.classList.add('other');
+      const isPast = d < new Date(today.getFullYear(), today.getMonth(), today.getDate()); const isSunday = d.getDay()===0; const overMax = d > maxDate;
+      if(isPast || isSunday || overMax){ el.classList.add('disabled'); el.disabled=true; }
+      el.addEventListener('click', ()=> selectDay(d));
+      if(selectedDay && dayKey(d)===dayKey(selectedDay)) el.classList.add('selected');
+      calGrid.appendChild(el);
+    }
+    const minMonth = new Date(); minMonth.setDate(1); const maxMonth = new Date(); maxMonth.setMonth(maxMonth.getMonth()+openMonths-1); maxMonth.setDate(1);
+    prevBtn.disabled = viewDate <= minMonth; nextBtn.disabled = viewDate >= maxMonth;
+    document.getElementById('calTitle').textContent = 'Select date — ' + fmtMonth(viewDate);
+  }
+
+  function selectDay(d){ selectedDay = new Date(d); selectedSlot=null; selDateLabel.textContent = selectedDay.toDateString(); renderSlots(); buildCalendar(); }
+
+  function renderSlots(){
+    slotsEl.classList.remove('hidden'); slotsEl.innerHTML=''; bookBtn.classList.add('hidden');
+    const tz = tzSel.value; const dayStart = new Date(selectedDay); dayStart.setHours(0,0,0,0);
+    const nowTZ = toTZ(new Date(), tz); const minStart = new Date(nowTZ.getTime() + minNoticeMinutes*60000);
+    for(let h=workStart; h<workEnd; h++){
+      for(let m=0;m<60;m+=slotMinutes){
+        const t = new Date(dayStart); t.setHours(h,m,0,0);
+        const btn = document.createElement('button'); btn.type='button'; btn.className='slot'; btn.textContent = t.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+        const dis = (dayKey(t)===dayKey(minStart) && t < minStart) || (dayKey(t)===dayKey(nowTZ) && t < nowTZ);
+        if(dis){ btn.classList.add('disabled'); btn.disabled=true; }
+        btn.addEventListener('click', ()=>{ if(btn.disabled) return; selectedSlot = h*60+m; slotsEl.querySelectorAll('.slot').forEach(s=> s.classList.remove('selected')); btn.classList.add('selected'); bookBtn.classList.remove('hidden'); });
+        slotsEl.appendChild(btn);
+      }
+    }
+  }
+
+  function toICS(){
+    const title='SHVYA AI — Discovery Call'; const start = new Date(selectedDay); start.setHours(Math.floor(selectedSlot/60), selectedSlot%60,0,0); const end = new Date(start.getTime()+30*60000);
+    const fmt = d=> d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+    const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//SHVYA AI//Booking//EN\nBEGIN:VEVENT\nUID:shvya-${Date.now()}@booking\nDTSTAMP:${fmt(new Date())}\nDTSTART:${fmt(start)}\nDTEND:${fmt(end)}\nSUMMARY:${title}\nDESCRIPTION:Booked via SHVYA AI website.\nEND:VEVENT\nEND:VCALENDAR`;
+    const blob = new Blob([ics], {type:'text/calendar'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='shvya-call.ics'; a.click(); URL.revokeObjectURL(url);
+  }
+
+  bookBtn.addEventListener('click', ()=>{ if(selectedDay && selectedSlot!=null){ toICS(); closeCalendarModal(); openBookingModal(); } });
+  prevBtn.addEventListener('click', ()=>{ viewDate.setMonth(viewDate.getMonth()-1); buildCalendar(); });
+  nextBtn.addEventListener('click', ()=>{ viewDate.setMonth(viewDate.getMonth()+1); buildCalendar(); });
+  tzSel.addEventListener('change', ()=>{ buildCalendar(); if(selectedDay) renderSlots(); });
+
+  window.openCalendarModal = function(){ modal.classList.add('open'); buildCalendar(); if(selectedDay) renderSlots(); };
+  window.closeCalendarModal = function(){ modal.classList.remove('open'); };
+})();
+
+// Booking confirmation + redirect
+function openBookingModal(){ const m=document.getElementById('bookingModal'); m.classList.add('open'); setTimeout(()=>{ window.location.href='https://shvya-ai.com/'; }, 1600); }
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SHVYA AI — Request a Demo</title>
+  <meta name="description" content="Request a demo of SHVYA AI — WhatsApp automation & SaaS suite." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070715;
+      --panel:#0e0e24;
+      --panel-2:#11112b;
+      --accent:#22c55e;
+      --accent-2:#10b981;
+      --muted:#a1a1b5;
+      --text:#f7f7fb;
+      --danger:#ef4444;
+      --focus: 0 0 0 6px rgb(34 197 94 / 8%), 0 0 0 1.5px var(--accent);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background: radial-gradient(1200px 800px at 20% -10%, #1a1a3a 0%, transparent 60%), radial-gradient(900px 700px at 110% 10%, #0b3725 0%, transparent 70%), var(--bg); color:var(--text);
+      display:grid; place-items:center; padding:32px;
+    }
+    .container{width:min(1120px, 100%);}
+    .header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px;}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
+    .logo{width:40px; height:40px; border-radius:12px; background:conic-gradient(from 210deg, #1dd75f, #0fb676, #1dd75f); display:grid; place-items:center; box-shadow:0 10px 30px rgb(34 197 94 / 30%)}
+    .logo svg{filter:drop-shadow(0 2px 4px rgba(0,0,0,.35))}
+    .brand h1{font-size:18px; margin:0; letter-spacing:.6px}
+    .cta{appearance:none; border:0; background: linear-gradient(180deg, #151533, #0c0c20); color:white; padding:14px 18px; border-radius:999px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:10px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 0 0 1px rgba(255,255,255,.06), 0 10px 30px rgba(0,0,0,.35); transition: transform .2s ease, box-shadow .2s ease;}
+    .cta:hover{ transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 0 1px rgba(255,255,255,.12), 0 16px 40px rgba(0,0,0,.5)}
+    .cta:focus-visible{ outline:none; box-shadow: var(--focus) }
+    .cta .arrow{display:inline-grid; place-items:center; width:24px; height:24px; border-radius:999px; background:rgba(255,255,255,.08)}
+    .panel{background: linear-gradient(180deg, var(--panel), var(--panel-2)); border-radius: var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06); overflow:hidden;}
+    .hero{ display:grid; grid-template-columns: 1.1fr 1fr; gap:28px; padding:28px; }
+    @media (max-width: 900px){.hero{grid-template-columns:1fr;}}
+    .copy{ padding:28px; border-right:1px solid rgba(255,255,255,.06)}
+    @media (max-width: 900px){ .copy{border-right:0; border-bottom:1px solid rgba(255,255,255,.06)} }
+    .eyebrow{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:rgba(34, 197, 94, .1); color:#bbf7d0; font-weight:600; font-size:12px; letter-spacing:.4px; text-transform:uppercase}
+    .title{ font-size: clamp(28px, 3.2vw, 44px); margin:14px 0 10px; line-height:1.1; }
+    .subtitle{ color:var(--muted); font-size:15px; margin:0 0 18px }
+    form{ padding:28px; }
+    .grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+    @media (max-width: 720px){ .grid{grid-template-columns:1fr} }
+    .field{ position:relative; }
+    .field input, .field select, .field textarea{width:100%; background:#0c0c21; border:1px solid rgba(255,255,255,.08); border-radius:14px; color:var(--text); padding:16px 14px; outline:none; transition:border .2s, box-shadow .2s, background .2s; font: inherit;}
+    .field textarea{ min-height:120px; resize:vertical }
+    .field input::placeholder, .field textarea::placeholder{ color:#7e7ea1 }
+    .field input:focus, .field select:focus, .field textarea:focus{ box-shadow:var(--focus); border-color: rgba(34, 197, 94, .6)}
+    .floating-label{ position:absolute; left:12px; top:10px; padding:0 6px; font-size:12px; color:#9aa0b6; background: #0c0c21; transform: translateY(-50%); pointer-events:none }
+    .help{ font-size:12px; color:var(--muted); margin-top:8px }
+    .error{ font-size:12px; color:var(--danger); margin-top:8px; display:none }
+    .field.invalid .error{ display:block }
+    .actions{ display:flex; align-items:center; gap:12px; margin-top:8px; flex-wrap:wrap }
+    .btn-primary{ --_bg1:#19c37d; --_bg2:#12a567; background:linear-gradient(180deg, var(--_bg1), var(--_bg2)); border:0; color:#03150c; padding:14px 18px; border-radius:999px; font-weight:800; letter-spacing:.2px; display:inline-flex; align-items:center; gap:10px; cursor:pointer; box-shadow:0 10px 30px rgba(25,195,125,.35); transition: transform .15s ease, box-shadow .15s ease }
+    .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 16px 40px rgba(25,195,125,.5) }
+    .btn-primary:disabled{ opacity:.6; cursor:not-allowed; transform:none; box-shadow:none }
+    .checkbox{ display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--muted) }
+    .checkbox input{ accent-color: var(--accent); width:18px; height:18px; margin-top:2px }
+    .note{ font-size:12px; color:#96a0b9 }
+    .toast{ position: fixed; right: 24px; bottom: 24px; padding:14px 16px; background:#0b1f14; color:#d1fae5; border:1px solid rgba(16,185,129,.4); border-radius:14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); opacity:0; transform: translateY(10px); pointer-events:none; transition: opacity .25s ease, transform .25s ease }
+    .toast.show{ opacity:1; transform: translateY(0) }
+    .modal{ position:fixed; inset:0; display:none; place-items:center; background:rgba(2,6,12,.6); backdrop-filter: blur(6px); }
+    .modal.open{ display:grid }
+    .modal-card{ width:min(540px, 92%); background: linear-gradient(180deg, var(--panel), var(--panel-2)); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:22px; text-align:center; box-shadow: 0 30px 80px rgba(0,0,0,.6) }
+    .modal-card h3{ margin:6px 0 6px }
+    .modal-card p{ color:var(--muted); margin:0 0 12px }
+    .visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header" aria-label="Top Navigation">
+      <a class="brand" href="#" aria-label="SHVYA AI Home">
+        <span class="logo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 12.25c0-2.9 2.35-5.25 5.25-5.25s5.25 2.35 5.25 5.25c0 2.9-2.35 5.25-5.25 5.25-.62 0-1.22-.1-1.77-.3l-2.48.67.66-2.39A5.22 5.22 0 0 1 7 12.25Z" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="10" cy="12" r="1.2" fill="white"/>
+            <circle cx="14.6" cy="12" r="1.2" fill="white"/>
+          </svg>
+        </span>
+        <h1>SHVYA AI</h1>
+      </a>
+      <button class="cta" type="button" onclick="document.getElementById('name').focus()">
+        <span>Request a Demo</span>
+        <span class="arrow" aria-hidden="true">➜</span>
+      </button>
+    </header>
+
+    <main class="panel hero" aria-labelledby="hero-title">
+      <section class="copy">
+        <span class="eyebrow">WhatsApp Automation • SaaS</span>
+        <h2 id="hero-title" class="title">Automate conversations. Convert faster.</h2>
+        <p class="subtitle">See how SHVYA AI connects your WhatsApp, CRM, and workflows to engage leads instantly, book meetings, and scale support with intelligent automation.</p>
+        <ul role="list" style="margin:0; padding:0 0 0 18px; line-height:1.9; color:#c6c6db">
+          <li>No-code flows & smart routing</li>
+          <li>24/7 chatbot with human handoff</li>
+          <li>Broadcasts, templates, metrics</li>
+        </ul>
+        <div style="margin-top:18px">
+          <button class="btn-primary" type="button" onclick="document.getElementById('request-form').scrollIntoView({behavior:'smooth'}); document.getElementById('name').focus()">
+            Request a Demo <span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section aria-label="Request a demo form">
+        <form id="request-form" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label class="floating-label" for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="John Carter" required aria-required="true" autocomplete="name" />
+              <p class="error">Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="email">Work email</label>
+              <input id="email" name="email" type="email" inputmode="email" placeholder="you@company.com" required aria-required="true" autocomplete="email" />
+              <p class="error">Enter a valid email address.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="company">Company</label>
+              <input id="company" name="company" type="text" placeholder="Acme Inc." required aria-required="true" autocomplete="organization" />
+              <p class="error">Please enter your company.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="phone">Phone (WhatsApp)</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+91 98765 43210" required aria-required="true" autocomplete="tel" />
+              <p class="error">Enter a valid phone number.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="size">Company size</label>
+              <select id="size" name="size" required aria-required="true">
+                <option value="" disabled selected>Select</option>
+                <option>1–10</option>
+                <option>11–50</option>
+                <option>51–200</option>
+                <option>201–500</option>
+                <option>500+</option>
+              </select>
+              <p class="error">Select your company size.</p>
+            </div>
+            <div class="field">
+              <label class="floating-label" for="usecase">Primary use case</label>
+              <select id="usecase" name="usecase" required aria-required="true">
+                <option value="" disabled selected>Select</option>
+                <option>Lead generation</option>
+                <option>Customer support</option>
+                <option>E‑commerce updates</option>
+                <option>Appointment booking</option>
+                <option>Notifications/Broadcasts</option>
+              </select>
+              <p class="error">Choose a use case.</p>
+            </div>
+            <div class="field" style="grid-column:1/-1">
+              <label class="floating-label" for="message">What should we focus on?</label>
+              <textarea id="message" name="message" placeholder="Tell us about your goals, current tools, and timeline…"></textarea>
+              <p class="help">Optional, but helps us tailor your demo.</p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <label class="checkbox"><input id="consent" type="checkbox" required> I agree to be contacted about the demo and product updates.</label>
+            <span class="note">We respect your inbox. Unsubscribe anytime.</span>
+          </div>
+
+          <div class="actions" style="margin-top:14px">
+            <button id="submitBtn" class="btn-primary" type="submit">
+              <span id="btnText">Request a Demo</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="cta" type="reset">Clear</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="successModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="successTitle" aria-describedby="successDesc">
+    <div class="modal-card">
+      <div class="logo" style="margin:0 auto 8px; width:54px; height:54px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M7 12.25c0-2.9 2.35-5.25 5.25-5.25s5.25 2.35 5
