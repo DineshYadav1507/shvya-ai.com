@@ -11992,136 +11992,116 @@ body.shvya-dark{
 
 
 /* Campair service start  */
-.shvya-compare-section {
-  background: radial-gradient(circle at top, #0d0b1a, #080712 80%);
-  color: #e6e6f9;
-  text-align: center;
+.crm-comparison-section {
+  background: #f9f9ff;
   padding: 100px 20px;
-  position: relative;
-  overflow: hidden;
   font-family: "Poppins", sans-serif;
 }
 
-.section-header {
-  max-width: 800px;
-  margin: 0 auto 60px;
-}
-.sub-title {
-  color: #9a7bff;
-  letter-spacing: 1px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.main-title {
-  font-size: 32px;
-  font-weight: 700;
-  color: #fff;
-}
-.desc {
-  color: #c8c8e0;
-  font-size: 16px;
-  line-height: 1.6;
+.crm-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.comparison-wrapper {
+.crm-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1c1b2e;
+}
+
+.highlight {
+  background: #4f6cff;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.crm-header p {
+  font-size: 16px;
+  color: #5e5e70;
+  margin-top: 12px;
+  max-width: 650px;
+  margin-inline: auto;
+}
+
+.crm-compare-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
+  margin-top: 40px;
 }
 
-.comparison-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.crm-card {
+  background: #fff;
+  border: 1px solid #e2e2f0;
   border-radius: 18px;
-  width: 380px;
-  padding: 30px 20px;
-  box-shadow: 0 0 20px rgba(138, 90, 255, 0.15);
+  padding: 30px;
+  width: 420px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.4s ease;
 }
 
-.comparison-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(138, 90, 255, 0.4);
+.crm-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(79, 108, 255, 0.2);
 }
 
-.comparison-card .label {
-  font-size: 18px;
+.crm-card h3 {
+  color: #2d2d3a;
   font-weight: 600;
-  color: #fff;
   margin-bottom: 15px;
 }
 
-.screen {
-  background: #121022;
-  border: 1px solid #272444;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: left;
-}
-
-.window-header {
-  display: flex;
-  gap: 6px;
-  padding: 10px;
-  background: #1a1830;
-  border-bottom: 1px solid #2b2944;
-}
-.window-header span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #6b5dfd;
-}
-
-.window-body {
-  padding: 15px 20px;
-}
-.window-body ul {
+.crm-card ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 15px;
 }
-.window-body li {
-  color: #d8d8f0;
+
+.crm-card ul li {
   font-size: 15px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.window-body li:last-child {
-  border-bottom: none;
+  color: #555;
+  margin-bottom: 10px;
 }
 
-.comparison-card.after {
-  border: 1px solid rgba(138, 90, 255, 0.5);
-  background: linear-gradient(145deg, rgba(138, 90, 255, 0.15), rgba(59, 47, 143, 0.3));
+.crm-card.before {
+  border: 1px solid #ddd;
+  background: #fffefc;
 }
 
-.btn-primary, .btn-outline {
-  display: inline-block;
-  margin: 15px 10px 0;
-  padding: 12px 26px;
+.crm-card.after {
+  background: linear-gradient(145deg, #f8f9ff, #fff);
+  border: 1px solid #cfd3ff;
+  position: relative;
+}
+
+.crm-img {
+  width: 100%;
   border-radius: 10px;
-  font-weight: 600;
-  transition: 0.3s;
-  text-decoration: none;
-}
-.btn-primary {
-  background: linear-gradient(90deg, #7c3cff, #4f46e5);
-  color: #fff;
-  box-shadow: 0 0 10px rgba(124, 60, 255, 0.5);
-}
-.btn-primary:hover {
-  box-shadow: 0 0 25px rgba(124, 60, 255, 0.8);
-  transform: translateY(-2px);
-}
-.btn-outline {
-  border: 1px solid #7c3cff;
-  color: #c9c4ff;
-}
-.btn-outline:hover {
-  background: #7c3cff;
-  color: #fff;
+  margin-top: 10px;
 }
 
+.crm-dashboard {
+  background: #f0f3ff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.stats {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 80px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.bar {
+  width: 14%;
+  background: linear-gradient(180deg, #5d67ff, #9aabff);
+  border-radius: 6px 6px 0 0;
+}
