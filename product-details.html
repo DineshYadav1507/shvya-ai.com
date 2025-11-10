@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Product Details | Shvya AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="shvya-dark">
+
+  <nav class="topbar container">
+    <a href="products.html" class="back">&larr; All Products</a>
+    <a href="contact.html" class="btn-soft">Book a Demo</a>
+  </nav>
+
+  <header class="details-hero">
+    <div class="container">
+      <h1 id="pd-title"></h1>
+      <p id="pd-sub" class="muted"></p>
+      <div class="hero-tags" id="pd-tags"></div>
+    </div>
+  </header>
+
+  <!-- GALLERY -->
+  <section class="container gallery-section">
+    <div class="swiper mainSwiper">
+      <div class="swiper-wrapper" id="pd-slides"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div thumbsSlider="" class="swiper thumbSwiper">
+      <div class="swiper-wrapper" id="pd-thumbs"></div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="container details-content">
+    <div class="details-grid">
+      <div>
+        <h2>What problem it solves</h2>
+        <p id="pd-problem"></p>
+
+        <h2>How Shvya solves it</h2>
+        <ul id="pd-solutions" class="checklist"></ul>
+
+        <h2>Key outcomes</h2>
+        <ul id="pd-outcomes" class="checks"></ul>
+      </div>
+      <aside class="details-aside">
+        <div class="card kpi">
+          <h4>Why businesses choose Shvya</h4>
+          <ul class="bullets">
+            <li>🧠 AI-driven automation</li>
+            <li>🔗 All-in-one ecosystem</li>
+            <li>🕒 Time-saving efficiency</li>
+            <li>📈 Data-driven growth</li>
+            <li>🔒 Security first</li>
+          </ul>
+          <a class="btn-primary w-100" href="contact.html">Get a Free Demo</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script>
+    // Read product id
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id') || '';
+    const product = SHVYA_PRODUCTS.find(p => p.id === id) || SHVYA_PRODUCTS[0];
+
+    // Fill hero
+    document.getElementById('pd-title').textContent = product.name;
+    document.getElementById('pd-sub').textContent = product.subtitle;
+    document.getElementById('pd-tags').innerHTML = product.tags.map(t => `<span class="pill">${t}</span>`).join('');
+
+    // Fill text blocks
+    document.getElementById('pd-problem').textContent = product.problem;
+    document.getElementById('pd-solutions').innerHTML = product.benefits.map(b => `<li>${b}</li>`).join('');
+    document.getElementById('pd-outcomes').innerHTML  = product.outcomes.map(o => `<li>${o}</li>`).join('');
+
+    // Build slides
+    const slidesWrap = document.getElementById('pd-slides');
+    const thumbsWrap = document.getElementById('pd-thumbs');
+    product.images.forEach(src => {
+      slidesWrap.insertAdjacentHTML('beforeend', `<div class="swiper-slide"><img src="${src}" alt="${product.name}"></div>`);
+      thumbsWrap.insertAdjacentHTML('beforeend', `<div class="swiper-slide"><img src="${src}" alt="thumb"></div>`);
+    });
+
+    // Init Swiper (thumbs + main)
+    const thumbs = new Swiper('.thumbSwiper', {
+      slidesPerView: 6,
+      spaceBetween: 8,
+      freeMode: true,
+      watchSlidesProgress: true,
+      breakpoints: { 0:{slidesPerView:4}, 768:{slidesPerView:6} }
+    });
+
+    const main = new Swiper('.mainSwiper', {
+      spaceBetween: 16,
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      thumbs: { swiper: thumbs }
+    });
+  </script>
+</body>
+</html>
+<script src="js/products.js"></script> 

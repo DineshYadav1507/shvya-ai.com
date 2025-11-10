@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Shvya Product Suite | Shvya AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Swiper CSS (for card hover slider on details page – safe to load here too) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="shvya-dark">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">Shvya Product Suite</h1>
+      <p class="hero-sub">
+        From chaos to clarity — one product at a time.<br>
+        Your business doesn’t need more people. It needs better systems.
+      </p>
+      <a href="#products" class="btn-primary">🚀 Explore Solutions That Fix Real Problems</a>
+    </div>
+    <div class="hero-bg"></div>
+  </header>
+
+  <!-- PROBLEM STRIP -->
+  <section class="problem-strip">
+    <div class="container">
+      <h2>If this sounds familiar — you’re in the right place.</h2>
+      <ul class="problem-grid">
+        <li>💬 My team wastes hours updating Excel sheets.</li>
+        <li>📞 Leads come in from everywhere — and half go cold.</li>
+        <li>🧾 We never know where our stock stands.</li>
+        <li>👨‍🍳 Orders get delayed and customers get frustrated.</li>
+        <li>👥 Attendance tracking is still manual.</li>
+        <li>🏥 Departments don’t communicate; data is siloed.</li>
+        <li>🧮 Payroll takes days — every month.</li>
+        <li>📍 Field staff says they’re on-site, but we can’t verify it.</li>
+      </ul>
+      <p class="muted">That’s not a people problem. It’s a system problem. And that’s exactly what Shvya was built to solve.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <main id="products" class="container section">
+    <h2 class="section-title">We don’t sell software — we deliver solutions.</h2>
+    <div id="productGrid" class="product-grid"></div>
+  </main>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+      <h3>You don’t need another tool. You need a transformation.</h3>
+      <p>Book a free consultation — let’s turn your business problems into your biggest advantage.</p>
+      <a class="btn-primary" href="contact.html">📅 Book a Free Consultation</a>
+    </div>
+  </section>
+
+  <script src="assets/js/products.js"></script>
+  <script>
+    // Build product cards
+    const grid = document.getElementById('productGrid');
+    const products = SHVYA_PRODUCTS; // from products.js
+
+    grid.innerHTML = products.map(p => `
+      <article class="product-card">
+        <a href="product-details.html?id=${encodeURIComponent(p.id)}" class="card-link">
+          <div class="card-media" style="background-image:url('${p.cover}')">
+            <span class="badge">${p.badge}</span>
+          </div>
+          <div class="card-body">
+            <h3>${p.name}</h3>
+            <p>${p.pitch}</p>
+            <div class="card-meta">
+              <span class="pill">${p.category}</span>
+              <span class="link">Learn more →</span>
+            </div>
+          </div>
+        </a>
+      </article>
+    `).join('');
+  </script>
+  <script src="js/products.js"></script> 
+</body>
+</html>
